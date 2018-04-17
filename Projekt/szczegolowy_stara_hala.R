@@ -45,17 +45,4 @@ K
 eksces=K-3
 eksces
 
-n=length(dane)
-
-srednia=mean(dane)
-odchylenie_standardowe=sd(dane)
-standaryzowane_dane=(dane-srednia)/odchylenie_standardowe
-standaryzowane_dane=sort(standaryzowane_dane)
-standaryzowane_dane
-dystrybuanta_standaryzowanych_danych=pnorm(standaryzowane_dane,mean(standaryzowane_dane), sd(standaryzowane_dane))
-dystrybuanta_standaryzowanych_danych
-d_plus=abs((seq(1,n,by=1)/n)-dystrybuanta_standaryzowanych_danych)
-d_minus=abs((seq(0,n-1,by=1)/n)-dystrybuanta_standaryzowanych_danych)
-max(d_plus)
-max(d_minus)
 
