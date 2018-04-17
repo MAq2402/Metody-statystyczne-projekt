@@ -1,4 +1,4 @@
-#FUNKCJE DLA SZEREGOW ROZDZIELCZYCH
+#FUNKCJE ZADANIE 1
 moda_szereg_rozdzielczy <-function(h){
   max_left=max(h$counts)
   i=which(h$counts==max_left)
@@ -24,7 +24,7 @@ kwantyl_Q3_szereg_rozdzielczy <-function(h, data){
   Q3=h$breaks[i]+((dl/h$counts[i])*((3*n/4)-sum(h$counts[1:i-1])))
   return(Q3)
 }
-
+#FUNKCJE ZADANIE 2
 
 test_kolmogomorowa_lillieforsa <-function(dane){
   n=length(dane)
