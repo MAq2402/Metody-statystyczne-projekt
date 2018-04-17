@@ -1,4 +1,4 @@
-data=unname(unlist(read.table("C:/Users/Michal/Desktop/Rprojekt/nowa_hala.txt")))
+data=unname(unlist(read.table("nowa_hala.txt")))
 n=length(data)
 n
 #obliczanie ?redniej
@@ -18,11 +18,11 @@ var(data)
 #obliczanie odch. stand.
 s = sd(data)
 #obliczanie odch. przec. od ?redniej
-d1=sum(abs(data-m))/n
+d1=sum(abs(data-mediana))/n
 d1
 #obliczanie odch. przec. od mediany
-m=median(data)
-d2=sum(abs(data-m))/n
+mediana=median(data)
+d2=sum(abs(data-mediana))/n
 d2
 mad(data)
 #obliczanie odch. ?wiartkowego
@@ -33,12 +33,12 @@ V=s/mean(data)*100
 V
 #obliczanie wska?. asymetrii
 #obliczanie wsp??. sko?no?ci
-m=mean(data)
-M3=sum((data-m)^3)/n
+srednia=mean(data)
+M3=sum((data-srednia)^3)/n
 A=M3/(s^3)
 A
 #obliczanie kurtozy
-M4=sum((data-m)^4)/n
+M4=sum((data-srednia)^4)/n
 K=M4/(s^4)
 K
 #obliczanie ekces
