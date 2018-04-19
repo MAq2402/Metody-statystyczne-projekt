@@ -21,16 +21,16 @@ Q1
 #obliczanie kwantylu Q3
 Q3=kwantyl_Q3_szereg_rozdzielczy(h, data)
 Q3
-#obliczanie wriancji
+#obliczanie wriancji obci¹¿onej
 s2=sum(((h$mids-srednia)^2)*h$counts)/n
 s2
-#obliczanie wriancji z gwiazdk?
+#obliczanie wriancji nieobci¹¿onej
 s2_gwiazdka=sum(((h$mids-srednia)^2)*h$counts)/(n-1)
 s2_gwiazdka
-#obliczanie odch. stand.
+#obliczanie odch. stand. obci¹¿one
 s=sqrt(s2)
 s
-#obliczanie odch. stand. z gwiazdk?
+#obliczanie odch. stand. nieobci¹¿one
 s_gwiazdka=sqrt(s2_gwiazdka)
 s_gwiazdka
 #obliczanie odch. przec. od ?redniej
