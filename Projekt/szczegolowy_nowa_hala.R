@@ -13,14 +13,16 @@ quantile(data,0.75)
 #obliczanie rozst?pu
 r=max(data)-min(data)
 r
-#obliczanie wriancji nieobci¹¿onej
+#obliczanie wriancji nieobci??onej
 var(data)
-#obliczanie wriancji obci¹¿onej
+#obliczanie wriancji obci??onej
 var(data)*(n-1)/n
-#obliczanie odch. stand.nieobci¹¿one
+#obliczanie odch. stand.nieobci??one
 s = sd(data)
-#obliczanie odch. stand. obci¹¿one
+s
+#obliczanie odch. stand. obci??one
 s = sd(data)*(n-1)/n
+s
 #obliczanie odch. przec. od ?redniej
 d1=sum(abs(data-mediana))/n
 d1

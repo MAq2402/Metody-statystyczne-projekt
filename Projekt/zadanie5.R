@@ -6,7 +6,7 @@ n1=length(dane_nowa_hala)
 n2=length((dane_stara_hala))
 wartosc_empiryczna_testu_fishera=w1/w2
 wartosc_empiryczna_testu_fishera
-wartoœæ_krytyczna_rozkladu_fishera=1.761
+wartosc_krytyczna_rozkladu_fishera=1.761
 z1=w1/(n1-1)
 z2=w2/(n2-1)
 cochran=(mean(dane_stara_hala)-mean(dane_nowa_hala))/sqrt(z2+z1)

@@ -4,6 +4,7 @@ przedzialy=c(14,20,26,32,38,44,50,56)
 h=hist(data, breaks=przedzialy)
 hist(data, breaks = przedzialy, col="tan1",xlab="Wydajno??",ylab="",
      main="nowa hala")
+rug(data)
 n=length(data)
 h
 #obliczanie ?redniej
@@ -21,16 +22,16 @@ Q1
 #obliczanie kwantylu Q3
 Q3=kwantyl_Q3_szereg_rozdzielczy(h, data)
 Q3
-#obliczanie wriancji obci¹¿onej
+#obliczanie wriancji obci??onej
 s2=sum(((h$mids-srednia)^2)*h$counts)/n
 s2
-#obliczanie wriancji nieobci¹¿onej
+#obliczanie wriancji nieobci??onej
 s2_gwiazdka=sum(((h$mids-srednia)^2)*h$counts)/(n-1)
 s2_gwiazdka
-#obliczanie odch. stand. obi¹¿onego
+#obliczanie odch. stand. obi??onego
 s=sqrt(s2)
 s
-#obliczanie odch. stand. nieobci¹¿onego
+#obliczanie odch. stand. nieobci??onego
 s_gwiazdka=sqrt(s2_gwiazdka)
 s_gwiazdka
 #obliczanie odch. przec. od ?redniej

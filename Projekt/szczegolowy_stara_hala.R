@@ -5,7 +5,8 @@ n
 mean(dane)
 #obliczanie mody
 #obliczanie mediany
-median(dane)
+mediana = median(dane)
+mediana
 #obliczanie kwantylu Q1
 quantile(dane,0.25)
 #obliczanie kwantylu Q3
@@ -13,10 +14,16 @@ quantile(dane,0.75)
 #obliczanie rozst?pu
 r=max(dane)-min(dane)
 r
-#obliczanie wriancji
+#obliczanie wriancji nieobci??onej
 var(dane)
-#obliczanie odch. stand.
+#obliczanie wriancji obci??onej
+var(dane)*(n-1)/n
+#obliczanie odch. stand.nieobci??one
 s = sd(dane)
+s
+#obliczanie odch. stand. obci??one
+s = sd(dane)*(n-1)/n
+s
 #obliczanie odch. przec. od ?redniej
 d1=sum(abs(dane-mediana))/n
 d1

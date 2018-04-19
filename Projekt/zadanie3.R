@@ -11,3 +11,4 @@ d2 =koniec_przedzialu-srednia
 d2
 wzgledna_precyzja_oszaczowania = (d/srednia) * 100
 wzgledna_precyzja_oszaczowania
+help(rug)
