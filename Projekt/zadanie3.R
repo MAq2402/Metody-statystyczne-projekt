@@ -1,19 +1,13 @@
-dane_stara_hala=unname(unlist(read.table("stara_hala.txt")))
-dane_nowa_hala=unname(unlist(read.table("nowa_hala.txt")))
-w1=var(dane_nowa_hala)
-w2=var(dane_stara_hala)
-n1=length(dane_nowa_hala)
-n2=length((dane_stara_hala))
-wartosc_empiryczna_testu_fishera=w1/w2
-wartosc_empiryczna_testu_fishera
-wartoœæ_krytyczna_rozkladu_fishera=1.761
-z1=w1/(n1-1)
-z2=w2/(n2-1)
-cochran=(mean(dane_stara_hala)-mean(dane_nowa_hala))/sqrt(z2+z1)
-cochran
-t1=2.0106
-t2=2.0322
-wartosc_krytyczna_cochran=(z1*t1+z2*t2)/(z1+z2)
-wartosc_krytyczna_cochran
-mean(dane_nowa_hala)
-mean(dane_stara_hala)
+dane=unname(unlist(read.table("stara_hala.txt")))  
+srednia = mean(dane)
+wariancja = var(dane)
+kwantyl_rozkladu_normalnego = 1.96 #dla alpha = 0,05
+n = length(dane)
+poczatek_przedzialu = srednia - kwantyl_rozkladu_normalnego*wariancja/sqrt(n) 
+koniec_przedzialu = srednia + kwantyl_rozkladu_normalnego*wariancja/sqrt(n)
+d=srednia- poczatek_przedzialu
+d
+d2 =koniec_przedzialu-srednia
+d2
+wzgledna_precyzja_oszaczowania = (d/srednia) * 100
+wzgledna_precyzja_oszaczowania
