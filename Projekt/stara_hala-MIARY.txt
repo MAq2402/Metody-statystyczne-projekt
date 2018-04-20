@@ -43,3 +43,5 @@ miary asymetrii
 miary koncentracji
 	kurtoza: 2.63018
 	eksces: -0.3698196
+
+Notatki:
