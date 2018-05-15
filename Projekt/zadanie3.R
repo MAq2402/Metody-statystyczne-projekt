@@ -1,10 +1,13 @@
 dane=unname(unlist(read.table("stara_hala.txt")))  
 srednia = mean(dane)
 wariancja = var(dane)
-kwantyl_rozkladu_normalnego = 1.96 #dla alpha = 0,05
+odchylenie_standardowe = sd(dane)
+odchylenie_standardowe
+sqrt(wariancja)
+kwantyl_rozkladu_normalnego = 1.96 #dla alpha = 0,05 , z jakiejs tabelki
 n = length(dane)
-poczatek_przedzialu = srednia - kwantyl_rozkladu_normalnego*wariancja/sqrt(n) 
-koniec_przedzialu = srednia + kwantyl_rozkladu_normalnego*wariancja/sqrt(n)
+poczatek_przedzialu = srednia - kwantyl_rozkladu_normalnego*odchylenie_standardowe/sqrt(n) 
+koniec_przedzialu = srednia + kwantyl_rozkladu_normalnego*odchylenie_standardowe/sqrt(n)
 d=srednia- poczatek_przedzialu
 d
 d2 =koniec_przedzialu-srednia
