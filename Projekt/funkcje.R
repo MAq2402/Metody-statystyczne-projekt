@@ -27,6 +27,7 @@ kwantyl_Q3_szereg_rozdzielczy <-function(h, data){
 #FUNKCJE ZADANIE 2
 
 test_kolmogomorowa_lillieforsa <-function(dane){
+  dane = sort(dane)
   n=length(dane)
   srednia=mean(dane)
   odchylenie_standardowe=sd(dane)
@@ -35,14 +36,9 @@ test_kolmogomorowa_lillieforsa <-function(dane){
   standaryzowane_dane
   dystrybuanta_standaryzowanych_danych=pnorm(standaryzowane_dane,mean(standaryzowane_dane), sd(standaryzowane_dane))
   dystrybuanta_standaryzowanych_danych
-  d_plus=abs((seq(1,n,by=1)/n)-dystrybuanta_standaryzowanych_danych)
-  d_minus=abs((seq(0,n-1,by=1)/n)-dystrybuanta_standaryzowanych_danych)
+  dystrybuanta = pnorm(dane,srednia,odchylenie_standardowe)
+  d_plus=abs((seq(1,n,by=1)/n)-dystrybuanta)
+  d_minus=abs(dystrybuanta-(seq(0,n-1,by=1)/n))
   d=max(max(d_plus),max(d_minus))
-  d
-  wartosc_krytyczna_d=0.886/sqrt(n)
-  wartosc_krytyczna_d
-  if(d<wartosc_krytyczna_d)
-    return(TRUE)
-  else
-    return(FALSE) 
+  return(d)
 }
