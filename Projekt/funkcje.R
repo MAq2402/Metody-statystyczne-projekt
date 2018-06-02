@@ -108,8 +108,8 @@ rozdzielczy_miary <-function(file_name, przedzialy)
   data=unname(unlist(read.table(paste(file_name,".txt", sep=""))))
   sink(file = paste(file_name, "_rozdzielczy_wyniki.txt", sep=""), append = FALSE, type = c("output"), split = FALSE)
   h=hist(data, breaks=przedzialy)
-  hist(data, breaks=przedzialy, col="tan1",xlab="Wydajno??",ylab="",
-       main="stara hala")
+  hist(data, breaks=przedzialy, col="tan1",xlab="Wydajnosc",ylab="",
+       main=file_name)
   n=length(data)
   h
   #obliczanie ?redniej
