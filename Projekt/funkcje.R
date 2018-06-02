@@ -54,19 +54,18 @@ szczegolowy_miary <-function(file_name)
   data=unname(unlist(read.table(paste(file_name,".txt", sep=""))))
   sink(file = paste(file_name, "_szczegolowy_wyniki.txt", sep=""), append = FALSE, type = c("output"), split = FALSE)
   n=length(data)
-  cat(n,"\n")
   #obliczanie ?redniej
-  cat(mean(data),"\n")
+  srednia=mean(data)
+  cat(srednia,"\n")
   #obliczanie mody
+  cat("\n")
   #obliczanie mediany
-  cat(median(data),"\n")
+  mediana=median(data)
+  cat(mediana,"\n")
   #obliczanie kwantylu Q1
   cat(quantile(data,0.25),"\n")
   #obliczanie kwantylu Q3
   cat(quantile(data,0.75),"\n")
-  #obliczanie rozst?pu
-  r=max(data)-min(data)
-  cat(r,"\n")
   #obliczanie wriancji nieobci¹¿onej
   cat(var(data),"\n")
   #obliczanie wriancji obci¹¿onej
@@ -78,10 +77,9 @@ szczegolowy_miary <-function(file_name)
   s = sd(data)*(n-1)/n
   cat(s,"\n")
   #obliczanie odch. przec. od ?redniej
-  d1=sum(abs(data-mediana))/n
+  d1=sum(abs(data-srednia))/n
   cat(d1,"\n")
   #obliczanie odch. przec. od mediany
-  mediana=median(data)
   d2=sum(abs(data-mediana))/n
   cat(d2,"\n")
   #obliczanie odch. ?wiartkowego
@@ -91,8 +89,8 @@ szczegolowy_miary <-function(file_name)
   V=s/mean(data)*100
   cat(V,"\n")
   #obliczanie wska?. asymetrii
+  cat("\n")
   #obliczanie wsp??. sko?no?ci
-  srednia=mean(data)
   M3=sum((data-srednia)^3)/n
   A=M3/(s^3)
   cat(A,"\n")
@@ -145,7 +143,7 @@ rozdzielczy_miary <-function(file_name, przedzialy)
   d1=sum((abs(h$mids-srednia))*h$counts)/n
   cat(d1,"\n")
   #obliczanie odch. przec. od mediany
-  d2=sum((abs(h$mids-srednia))*h$counts)/n
+  d2=sum((abs(h$mids-mediana))*h$counts)/n
   cat(d2,"\n")
   #obliczanie odch. ?wiartkowego
   Q=(Q3-Q1)/2
