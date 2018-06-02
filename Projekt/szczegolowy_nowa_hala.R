@@ -1,8 +1,9 @@
 data=unname(unlist(read.table("nowa_hala.txt")))
+sink(file = "nowa_hala_wyniki.txt", append = FALSE, type = c("output"), split = FALSE)
 n=length(data)
-n
+print(n)
 #obliczanie ?redniej
-mean(data)
+print(mean(data))
 #obliczanie mody
 #obliczanie mediany
 median(data)

@@ -1,0 +1,7 @@
+source("funkcje.R")
+szczegolowy_miary("nowa_hala")
+szczegolowy_miary("stara_hala")
+przedzialy_nowa=c(14,20,26,32,38,44,50,56)
+rozdzielczy_miary("nowa_hala",przedzialy_nowa)
+przedzialy_stara=c(17.5,22.5,27.5,32.5,37.5,42.5,47.5)
+rozdzielczy_miary("stara_hala", przedzialy_stara)
