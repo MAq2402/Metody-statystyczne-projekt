@@ -40,7 +40,6 @@ test_kolmogomorowa_lillieforsa <-function(dane){
   d_plus=abs((seq(1,n,by=1)/n)-dystrybuanta)
   d_minus=abs(dystrybuanta-(seq(0,n-1,by=1)/n))
   d=max(max(d_plus),max(d_minus))
-<<<<<<< HEAD
   d
   wartosc_krytyczna_d=0.886/sqrt(n)
   wartosc_krytyczna_d
@@ -169,8 +168,3 @@ rozdzielczy_miary <-function(file_name, przedzialy)
   eksces=K-3
   cat(eksces,"\n")
 }
-  
-=======
-  return(d)
-}
->>>>>>> 7bd3b45c569ef80835a9850633143f6fb2c90d16
