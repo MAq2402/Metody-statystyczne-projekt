@@ -31,22 +31,13 @@ test_kolmogomorowa_lillieforsa <-function(dane){
   n=length(dane)
   srednia=mean(dane)
   odchylenie_standardowe=sd(dane)
-  standaryzowane_dane=(dane-srednia)/odchylenie_standardowe
-  standaryzowane_dane=sort(standaryzowane_dane)
-  standaryzowane_dane
-  dystrybuanta_standaryzowanych_danych=pnorm(standaryzowane_dane,mean(standaryzowane_dane), sd(standaryzowane_dane))
-  dystrybuanta_standaryzowanych_danych
   dystrybuanta = pnorm(dane,srednia,odchylenie_standardowe)
   d_plus=abs((seq(1,n,by=1)/n)-dystrybuanta)
   d_minus=abs(dystrybuanta-(seq(0,n-1,by=1)/n))
   d=max(max(d_plus),max(d_minus))
-  d
-  wartosc_krytyczna_d=0.886/sqrt(n)
-  wartosc_krytyczna_d
-  if(d<wartosc_krytyczna_d)
-    return(TRUE)
-  else
-    return(FALSE) 
+  
+    return(d)
+ 
 }
 
 szczegolowy_miary <-function(file_name)
@@ -66,14 +57,14 @@ szczegolowy_miary <-function(file_name)
   cat(quantile(data,0.25),"\n")
   #obliczanie kwantylu Q3
   cat(quantile(data,0.75),"\n")
-  #obliczanie wriancji nieobci¹¿onej
+  #obliczanie wriancji nieobci??onej
   cat(var(data),"\n")
-  #obliczanie wriancji obci¹¿onej
+  #obliczanie wriancji obci??onej
   cat((var(data)*(n-1)/n),"\n")
-  #obliczanie odch. stand.nieobci¹¿one
+  #obliczanie odch. stand.nieobci??one
   s = sd(data)
   cat(s,"\n")
-  #obliczanie odch. stand. obci¹¿one
+  #obliczanie odch. stand. obci??one
   s = sd(data)*(n-1)/n
   cat(s,"\n")
   #obliczanie odch. przec. od ?redniej
@@ -127,16 +118,16 @@ rozdzielczy_miary <-function(file_name, przedzialy)
   #obliczanie kwantylu Q3
   Q3=kwantyl_Q3_szereg_rozdzielczy(h, data)
   cat(Q3,"\n")
-  #obliczanie wriancji obci¹¿onej
+  #obliczanie wriancji obci??onej
   s2=sum(((h$mids-srednia)^2)*h$counts)/n
   cat(s2,"\n")
-  #obliczanie wriancji nieobci¹¿onej
+  #obliczanie wriancji nieobci??onej
   s2_gwiazdka=sum(((h$mids-srednia)^2)*h$counts)/(n-1)
   cat(s2_gwiazdka,"\n")
-  #obliczanie odch. stand. obci¹¿one
+  #obliczanie odch. stand. obci??one
   s=sqrt(s2)
   cat(s,"\n")
-  #obliczanie odch. stand. nieobci¹¿one
+  #obliczanie odch. stand. nieobci??one
   s_gwiazdka=sqrt(s2_gwiazdka)
   cat(s_gwiazdka,"\n")
   #obliczanie odch. przec. od ?redniej
