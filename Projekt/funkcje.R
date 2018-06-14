@@ -7,18 +7,21 @@ moda_szereg_rozdzielczy <-function(h){
   return(ds_mode)
 }
 mediana_szereg_rozdzielczy <-function(h, data){
+  n=length(data)
   i=max(which(h$breaks<median(data)))
   dl=h$breaks[i+1]-h$breaks[i]
   ds_median=h$breaks[i]+((dl/h$counts[i])*((n/2)-sum(h$counts[1:i-1])))
   return(ds_median)
 }
 kwantyl_Q1_szereg_rozdzielczy <-function(h, data){
+  n=length(data)
   i=max(which(h$breaks<quantile(data,0.25)))
   dl=h$breaks[i+1]-h$breaks[i]
   Q1=h$breaks[i]+((dl/h$counts[i])*((n/4)-sum(h$counts[1:i-1])))
   return(Q1)
 }
 kwantyl_Q3_szereg_rozdzielczy <-function(h, data){
+  n=length(data)
   i=max(which(h$breaks<quantile(data,0.75)))
   dl=h$breaks[i+1]-h$breaks[i]
   Q3=h$breaks[i]+((dl/h$counts[i])*((3*n/4)-sum(h$counts[1:i-1])))
@@ -43,7 +46,6 @@ test_kolmogomorowa_lillieforsa <-function(dane){
 szczegolowy_miary <-function(file_name)
 {
   data=unname(unlist(read.table(paste(file_name,".txt", sep=""))))
-  sink(file = paste(file_name, "_szczegolowy_wyniki.txt", sep=""), append = FALSE, type = c("output"), split = FALSE)
   n=length(data)
   #obliczanie ?redniej
   srednia=mean(data)
@@ -97,12 +99,10 @@ szczegolowy_miary <-function(file_name)
 rozdzielczy_miary <-function(file_name, przedzialy)
 {
   data=unname(unlist(read.table(paste(file_name,".txt", sep=""))))
-  sink(file = paste(file_name, "_rozdzielczy_wyniki.txt", sep=""), append = FALSE, type = c("output"), split = FALSE)
   h=hist(data, breaks=przedzialy)
   hist(data, breaks=przedzialy, col="tan1",xlab="Wydajnosc",ylab="",
        main=file_name)
   n=length(data)
-  h
   #obliczanie ?redniej
   srednia=sum(h$mids*h$counts)/n
   cat(srednia,"\n")
