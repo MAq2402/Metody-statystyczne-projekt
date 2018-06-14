@@ -35,9 +35,9 @@ test_kolmogomorowa_lillieforsa <-function(dane){
   d_plus=abs((seq(1,n,by=1)/n)-dystrybuanta)
   d_minus=abs(dystrybuanta-(seq(0,n-1,by=1)/n))
   d=max(max(d_plus),max(d_minus))
-  
-    return(d)
- 
+  wartosc_krytyczna=0.886/sqrt(n) # wedle wzoru z podanej na zajêciach dokumentacji
+  cat("Wynik testu: ", d, "\n")
+  cat("Wartoœæ krytyczna: ", wartosc_krytyczna, "\n")
 }
 
 szczegolowy_miary <-function(file_name)
